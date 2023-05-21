@@ -1,0 +1,196 @@
+* { 
+    padding: 0; 
+    margin: 0; 
+    box-sizing: border-box; 
+    font-family: "Poppins", sans-serif; 
+  } 
+  body.active {
+    background-color: rgb(43, 52, 65);
+  }
+  body { 
+    background-color: #f4c531; 
+  } 
+  .wrapper { 
+    box-sizing: content-box; 
+    width: 26.87em; 
+    padding: 2.5em 3em; 
+    background-color: #ffffff; 
+    position: absolute; 
+    transform: translate(-50%, -50%); 
+    left: 50%; 
+    top: 50%; 
+    border-radius: 0.6em; 
+    box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2); 
+  } 
+  .game-container { 
+    position: relative; 
+    width: 100%; 
+    display: grid; 
+    gap: 0.6em; 
+  } 
+  .stats-container { 
+    text-align: right; 
+    margin-bottom: 1.2em; 
+  } 
+  .stats-container span { 
+    font-weight: 600; 
+  } 
+  .card-container { 
+    position: relative; 
+    width: 6.25em; 
+    height: 6.25em; 
+    cursor: pointer; 
+  } 
+  .card-before, 
+  .card-after { 
+    position: absolute; 
+    border-radius: 5px; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border: 4px solid #000000; 
+    transition: transform 0.7s ease-out; 
+    backface-visibility: hidden; 
+  } 
+  .card-before { 
+    background-color: #f4c531; 
+    font-size: 2.8em; 
+    font-weight: 600; 
+  } 
+  .card-after { 
+    background-color: #ffffff; 
+    transform: rotateY(180deg); 
+  } 
+
+  .card-after img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-container.flipped .card-before { 
+    transform: rotateY(180deg); 
+  } 
+  .card-container.flipped .card-after { 
+    transform: rotateY(0deg); 
+  } 
+  .controls-container { 
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    gap: 100px;
+    /* justify-content: center;  */
+    flex-direction: column; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #f4c531; 
+    top:30px; 
+  } 
+  .controls-container.active{
+    background-color: rgb(43, 52, 65);
+    color: white;
+  }
+  button { 
+    border: none; 
+    border-radius: 0.3em; 
+    padding: 1em 1.5em; 
+    cursor: pointer; 
+  } 
+  #stop { 
+    font-size: 1.1em; 
+    display: block; 
+    margin: 1.1em auto 0 auto; 
+    background-color: #000000; 
+    color: #ffffff; 
+  } 
+  .controls-container button { 
+    font-size: 1.3em; 
+    box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2); 
+  } 
+  .hide { 
+    display: none; 
+  } 
+  #result { 
+    text-align: center; 
+  } 
+  #result h2 { 
+    font-size: 2.5em; 
+  } 
+  #result h4 { 
+    font-size: 1.8em; 
+    margin: 0.6em 0 1em 0; 
+  }
+
+.loader{
+   position: absolute;
+   z-index: 99;
+   min-width: 100vw;
+   height: 100vh;
+   display: none;
+   background-color: white;
+}
+.loader.active{
+  display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.card{
+  display: flex;
+  justify-content: end;
+  padding: 10px 20px;
+  gap: 40px;
+  
+}
+#select{
+  border: 2px solid rgb(118, 108, 108);
+  outline: none;
+  
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: rgb(79, 70, 70);
+  font-weight: 600;
+}
+.label {
+  background-color: rgb(0, 42, 100);
+  display: flex;
+  align-items: center;    
+  position: relative;
+  border-radius: 50px;
+  gap: 10px;
+  
+  padding: 5px;
+  width: 50px;
+  height: 26px;
+  transform: scale(1.2);
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.fa-moon {
+  color: #f1c40f;
+  
+}
+
+.fa-sun {
+  color: #f1c40f;
+ 
+}
+
+.ball {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s linear;
+}
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}

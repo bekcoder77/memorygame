@@ -1,0 +1,217 @@
+* { 
+    padding: 0; 
+    margin: 0; 
+    box-sizing: border-box; 
+    font-family: "Poppins", sans-serif; 
+  } 
+  body.active {
+    background: rgba(99, 84, 240, 0.616);
+    background: linear-gradient(90deg,  rgba(75, 87, 122) 51%, rgb(75, 87, 122) 99%);
+  }
+  body { 
+    background: rgb(63, 251, 198);
+    background: radial-gradient(circle, rgb(131, 146, 218) 0%, rgb(214, 107, 128) 100%);
+  } 
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  .wrapper { 
+    box-sizing: content-box; 
+    width: 26.87em; 
+    padding: 2.5em 3em; 
+    background-color: #ffffff; 
+    position: absolute; 
+    transform: translate(-50%, -50%); 
+    left: 50%; 
+    top: 50%; 
+    border-radius: 0.6em; 
+    box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2); 
+  } 
+  .game-container { 
+    position: relative; 
+    width: 100%; 
+    display: grid; 
+    gap: 0.6em; 
+  } 
+  .stats-container { 
+    text-align: right; 
+    margin-bottom: 1.2em; 
+  } 
+  .stats-container span { 
+    font-weight: 600; 
+  } 
+  .card-container { 
+    position: relative; 
+    width: 6.25em; 
+    height: 6.25em; 
+    cursor: pointer; 
+  } 
+  .card-before, 
+  .card-after { 
+    position: absolute; 
+    border-radius: 5px; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border: 4px solid grey; 
+    transition: transform 0.7s ease-out; 
+    backface-visibility: hidden; 
+  } 
+  .card-before { 
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 51%, rgba(252,176,69,1) 99%);
+    font-size: 2.8em; 
+    color: white;
+    font-weight: 600; 
+  } 
+  .card-after { 
+    background-color: #ffffff; 
+    transform: rotateY(180deg); 
+  } 
+  .card-container.flipped .card-before { 
+    transform: rotateY(180deg); 
+  } 
+  .card-container.flipped .card-after { 
+    transform: rotateY(0deg); 
+  } 
+  .controls-container { 
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+    width: 100%; 
+    height: 100%; 
+    color: white;
+    background: rgb(63, 251, 198);
+    background: radial-gradient(circle, rgb(131, 146, 218) 0%, rgb(214, 107, 128) 100%);
+  } 
+  .controls-container.active{
+    background: rgba(63, 42, 248, 0.616);
+    background: linear-gradient(90deg, rgb(109, 81, 128) 20%,  rgb(75, 87, 122) 99%);
+    color: white;
+  }
+  button { 
+    border: none; 
+    border-radius: 0.3em; 
+    padding: 1em 1.5em; 
+    cursor: pointer; 
+  } 
+  #stop { 
+    font-size: 1.1em; 
+    display: block; 
+    margin: 1.1em auto 0 auto; 
+    background-color: #000000; 
+    color: #ffffff; 
+  } 
+  .controls-container button { 
+    font-size: 1.3em; 
+    box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2); 
+  } 
+  .hide { 
+    display: none; 
+  } 
+  #result { 
+    text-align: center; 
+  } 
+  #result h2 { 
+    font-size: 2.5em; 
+  } 
+  #result h4 { 
+    font-size: 1.8em; 
+    margin: 0.6em 0 1em 0; 
+  }
+ 
+.card{
+    display: flex;
+    justify-content: end;
+    padding: 10px 20px;
+    gap: 40px;
+    
+}
+#select{
+    border: 2px solid rgb(118, 108, 108);
+    outline: none;
+    
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: rgb(79, 70, 70);
+    font-weight: 600;
+}
+  .label {
+    background-color: rgb(0, 42, 100);
+    display: flex;
+    align-items: center;    
+    position: relative;
+    border-radius: 50px;
+    padding: 5px;
+    width: 50px;
+    height: 26px;
+    transform: scale(1.2);
+  }
+  
+  .checkbox {
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .fa-moon {
+    color: #f1c40f;
+  }
+  
+  .fa-sun {
+    color: #f1c40f;
+  }
+  
+  .ball {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s linear;
+  }
+  .checkbox:checked + .label .ball {
+    transform: translateX(24px);
+}
+
+.loader {
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    top: 45%;
+    left: 48%;
+    background-image:
+      linear-gradient(#FFF 16px, transparent 0) ,
+      linear-gradient(#FF3D00 16px, transparent 0) ,
+      linear-gradient(#FF3D00 16px, transparent 0) ,
+      linear-gradient(#FFF 16px, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: left top , left bottom , right top , right bottom;
+    animation: rotate 1s linear infinite;
+    /* display: flex; */
+  }
+  @keyframes rotate {
+    0% {
+      width: 84px;
+      height: 84px;
+      transform: rotate(0deg)
+    }
+    50% {
+      width: 50px;
+      height: 50px;
+      transform: rotate(180deg)
+    }
+    100% {
+        width: 84px;
+        height: 84px;
+      transform: rotate(360deg)
+    }
+  }
